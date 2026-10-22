@@ -1,0 +1,8 @@
+# Repository guidance
+
+## Review and delivery
+
+- Before hosted review, finish a coherent candidate and final relevant integration, run the existing required checks and realistic scenarios, and obtain independent local CLI review of the exact candidate HEAD. Keep PRs small and complete. Bug fixes need failing-then-passing proof, or clear failure evidence with the verification limitation.
+- Reserve hosted review for high-consequence behaviour: security/auth, production controls, data/source integrity, destructive/recovery paths, shared lifecycle logic, and security-sensitive policy/configuration documentation. Ordinary docs, copy and formatting use proportionate local/CI checks. Material security/data/reliability/contract/architecture/dependency/deployment/release-policy risks still require a PR and independent review.
+- One owner initiates hosted review only with an explicit `@codex review`; keep automatic open, push and draft-ready review triggers off. Verify native Codex integration settings separately from Actions YAML; repository scripts and workflow concurrency cannot disable native review or prevent direct user comments. Reuse applicable review; do not overlap requests.
+- Triage findings, batch valid fixes and explain rejected findings. Preserve required provider/human, check, backup, rollback and live-proof gates; provider unavailability is a blocked gate, not a waiver. Merge/release requires current remote-head coverage, passing required checks and no unresolved material findings. Record SHA, reviewer, proof, limitations, findings and review attempts in the existing task/PR summary.
